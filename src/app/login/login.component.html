@@ -60,12 +60,12 @@
   <div *ngIf="selectedRole === 'admin'" class="login-form">
     <img src="assets/banners/admin.png" alt="Admin Logo" class="login-logo">
     <h3>Admin Login</h3>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" action="/home" method="post">
       <label for="adminUsername">Username:</label>
       <input formControlName="username" id="adminUsername" type="text" placeholder="Admin Username" />
       <label for="adminPassword">Password:</label>
       <input formControlName="password" id="adminPassword" type="password" placeholder="Admin Password" />
-      <button type="submit">Login as Admin</button>
+      <button type="submit" (click)="navigateToLogin()">Login as Admin</button>
     </form>
   </div>
 
@@ -78,7 +78,7 @@
       <input formControlName="username" id="facultyUsername" type="text" placeholder="Faculty Username" />
       <label for="facultyPassword">Password:</label>
       <input formControlName="password" id="facultyPassword" type="password" placeholder="Faculty Password" />
-      <button type="submit">Login as Faculty</button>
+      <button type="submit" (click)="navigateToLogin()" >Login as Faculty</button>
     </form>
   </div>
 
@@ -91,7 +91,7 @@
       <input formControlName="username" id="studentUsername" type="text" placeholder="Student Username" />
       <label for="studentPassword">Password:</label>
       <input formControlName="password" id="studentPassword" type="password" placeholder="Student Password" />
-      <button type="submit">Login as Student</button>
+      <button type="submit" (click)="navigateToLogin()">Login as Student</button>
     </form>
   </div>
 

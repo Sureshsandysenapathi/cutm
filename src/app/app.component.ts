@@ -48,12 +48,23 @@ import { AssignmentsDeadlinesComponent } from './student-dashboard/assignments-d
 import { GradesAnalyticsComponent } from './student-dashboard/grades-analytics/grades-analytics.component';
 import { EnrollmentOptionsComponent } from './student-dashboard/enrollment-options/enrollment-options.component';
 import { MessagesNotificationsComponent } from './student-dashboard/messages-notifications/messages-notifications.component';
+import { UnifiedDashboardComponent } from './unified-dashboard/unified-dashboard.component';
+import { MessagesComponent } from './unified-dashboard/faculty/messages/messages.component';
+import { MycoursesComponent } from './unified-dashboard/faculty/mycourses/mycourses.component';
+import { ManagecoursesComponent } from './unified-dashboard/admin/managecourses/managecourses.component';
+import { ManageusersComponent } from './unified-dashboard/admin/manageusers/manageusers.component';
+import { StudentperformanceComponent } from './unified-dashboard/faculty/studentperformance/studentperformance.component';
+import { ReportsanalyticsComponent } from './unified-dashboard/admin/reportsanalytics/reportsanalytics.component';
+import { SettingsComponent } from './unified-dashboard/admin/settings/settings.component';
+import { CourseUploadComponent } from './unified-dashboard/admin/course-upload/course-upload.component';
+import { AddUserComponent } from './unified-dashboard/admin/add-user/add-user.component';
+import { ViewUsersComponent } from './unified-dashboard/admin/view-users/view-users.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule,NavbarComponent,LoginComponent,SignupComponent,HomeComponent,ProfileComponent,AboutComponent,ServicesComponent,FooterComponent,CourseComponent,TechologyComponent,BusinessComponent,DesignComponent,AiComponent,DataComponent,WebComponent,CyberComponent,CnComponent,BioComponent,EceComponent,MechanicalComponent,AdvancedAiComponent,DeepLearningComponent,NLPComponent,MachineLearningComponent,DataManagementComponent,VedioComponent,AssignmentComponent,MidtremTestComponent,FinalTestComponent,TopRecruitersComponent,AboutPaltformComponent,PopularCoursesComponent,FaqComponent,CourseplansComponent,SubscriptionPlansComponent,SubscriptionDetailComponent,StudentsComponent,QuizzesComponent,DashboardComponent,MessagesListComponent,StudentDashboardComponent,CourseOverviewComponent,AssignmentsDeadlinesComponent,GradesAnalyticsComponent,EnrollmentOptionsComponent,MessagesNotificationsComponent],
+  imports: [RouterOutlet,CommonModule,NavbarComponent,LoginComponent,SignupComponent,HomeComponent,ProfileComponent,AboutComponent,ServicesComponent,FooterComponent,CourseComponent,TechologyComponent,BusinessComponent,DesignComponent,AiComponent,DataComponent,WebComponent,CyberComponent,CnComponent,BioComponent,EceComponent,MechanicalComponent,AdvancedAiComponent,DeepLearningComponent,NLPComponent,MachineLearningComponent,DataManagementComponent,VedioComponent,AssignmentComponent,MidtremTestComponent,FinalTestComponent,TopRecruitersComponent,AboutPaltformComponent,PopularCoursesComponent,FaqComponent,CourseplansComponent,SubscriptionPlansComponent,SubscriptionDetailComponent,StudentsComponent,QuizzesComponent,DashboardComponent,MessagesListComponent,StudentDashboardComponent,CourseOverviewComponent,AssignmentsDeadlinesComponent,GradesAnalyticsComponent,EnrollmentOptionsComponent,MessagesNotificationsComponent,UnifiedDashboardComponent,MessagesComponent,MycoursesComponent,AssignmentComponent,ManagecoursesComponent,StudentperformanceComponent,ReportsanalyticsComponent,SettingsComponent,CourseUploadComponent,AddUserComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

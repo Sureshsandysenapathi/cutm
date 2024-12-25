@@ -1,0 +1,35 @@
+
+<div class="dashboard-wrapper">
+    <!-- Side Navigation -->
+    <nav class="side-nav">
+      <div class="logo">
+        <img src="assets/banners/image.png" alt="Logo" />
+      </div>
+  
+      <!-- Role Switcher -->
+      <div class="role-switcher">
+        <button [class.active]="role === 'admin'" (click)="switchRole('admin')">Admin</button>
+        <button [class.active]="role === 'faculty'" (click)="switchRole('faculty')">Faculty</button>
+      </div>
+  
+      <!-- Navigation List -->
+      <ul class="nav-list">
+        <li *ngFor="let menu of role === 'admin' ? adminMenu : facultyMenu">
+          <a routerLink="{{menu.Link}}">{{menu.label}}</a>
+        </li>
+      </ul>
+    </nav>
+  
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <h1 *ngIf="role === 'admin'">Welcome to Admin Dashboard</h1>
+      <h1 *ngIf="role === 'faculty'">Welcome to Faculty Dashboard</h1>
+      <p>Content specific to each section will be displayed here.</p>
+  
+      <!-- Dynamic Routing Outlet -->
+      <div class="dashboard-content">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+  

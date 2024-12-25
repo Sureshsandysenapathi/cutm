@@ -12,7 +12,7 @@ export interface Assignment {
 @Component({
   selector: 'app-assignments-deadlines',
   standalone: true,
-  imports: [CommonModule,RouterModule,FormsModule],
+  imports: [CommonModule,RouterModule,FormsModule,HttpClientModule],
   templateUrl: './assignments-deadlines.component.html',
   styleUrl: './assignments-deadlines.component.css'
 })

@@ -1,0 +1,40 @@
+.manage-users {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .manage-users h2 {
+    color: #34495e;
+    font-size: 1.8em;
+  }
+  
+  .manage-users p {
+    color: #7f8c8d;
+  }
+  
+  .user-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-user {
+    background-color: #f39c12;
+    color: white;
+  }
+  
+  .view-users {
+    background-color: #8e44ad;
+    color: white;
+  }
+  

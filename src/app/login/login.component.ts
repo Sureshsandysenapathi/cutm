@@ -45,7 +45,7 @@ export class LoginComponent {
             localStorage.setItem('token', response.token);
             localStorage.setItem('role', response.role);
             // Redirect to dashboard or another component
-            this.router.navigate(['/Home']);
+            this.router.navigate(['/home']);
           }
         },
         error: (err) => {
@@ -63,5 +63,9 @@ export class LoginComponent {
   // Navigate to the sign-up page
   navigateToSignUp() {
     this.router.navigate(['/Signup']); // Make sure you have a signup route configured
+  }
+  // Navigate to the sign-up page
+  navigateToLogin() {
+    this.router.navigate(['/Home']); // Make sure you have a signup route configured
   }
 }

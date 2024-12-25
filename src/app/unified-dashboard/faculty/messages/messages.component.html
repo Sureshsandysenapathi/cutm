@@ -1,0 +1,6 @@
+<h1>Messages</h1>
+<div class="message" *ngFor="let message of messages">
+  <h2>{{ message.sender }}</h2>
+  <p>{{ message.content }}</p>
+  <p><strong>Received:</strong> {{ message.date }}</p>
+</div>

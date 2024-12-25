@@ -1,0 +1,24 @@
+<div class="view-users-container">
+    <h3>Users List</h3>
+    <ul>
+      <li *ngFor="let u of users; let i = index">
+        <div *ngIf="editingIndex === i; else displayUser">
+          <input type="text" [(ngModel)]="u.name" placeholder="Name" />
+          <input type="email" [(ngModel)]="u.email" placeholder="Email" />
+          <select [(ngModel)]="u.role">
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+            <option value="moderator">Moderator</option>
+          </select>
+          <button (click)="saveUser(u)">Save</button>
+          <button (click)="cancelEdit()">Cancel</button>
+        </div>
+        <ng-template #displayUser>
+          {{ u.name }} ({{ u.role }}) - {{ u.email }}
+          <button (click)="editUser(i)">Edit</button>
+          <button (click)="deleteUser(u.id)">Delete</button>
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+  

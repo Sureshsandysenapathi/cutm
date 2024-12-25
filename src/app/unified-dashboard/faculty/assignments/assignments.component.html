@@ -1,0 +1,22 @@
+<h1>Assignments</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Due Date</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let assignment of assignments">
+      <td>{{ assignment.title }}</td>
+      <td>{{ assignment.dueDate }}</td>
+      <td>{{ assignment.status }}</td>
+      <td>
+        <button (click)="editAssignment(assignment.id)">Edit</button>
+        <button (click)="viewSubmissions(assignment.id)">View Submissions</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

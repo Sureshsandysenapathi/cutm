@@ -1,0 +1,33 @@
+<div class="add-user-container">
+  <h2>Add User</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" type="text" [(ngModel)]="user.name" name="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" [(ngModel)]="user.email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select [(ngModel)]="user.role" name="role" required>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+        <option value="moderator">Moderator</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add User</button>
+  </form>
+
+  <h3>Users List</h3>
+  <ul>
+    <li *ngFor="let u of users">
+      {{ u.name }} ({{ u.role }}) - {{ u.email }}
+      <button (click)="deleteUser(u.id)">Delete</button>
+    </li>
+  </ul>
+</div>

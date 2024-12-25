@@ -1,25 +1,57 @@
 h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #2c3e50;
-  }
-  
-  .course-card {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    margin-bottom: 10px;
-    
-    h3 {
-      font-size: 1.2em;
-      color: #34495e;
-      margin-bottom: 5px;
-    }
-    
-    p {
-      color: #7f8c8d;
-    }
-  }
-  
-  
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+
+.course-card {
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0; /* Square corners */
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  text-align: left;
+}
+
+.course-card:hover {
+  background-color: #f5f5f5;
+  border-color: #3498db; /* Highlight border on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.course-card h3 {
+  font-size: 1.4em;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.course-card p {
+  font-size: 1em;
+  color: #7f8c8d;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.course-card .course-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #3498db;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9em;
+  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.course-card .course-btn:hover {
+  background-color: #2980b9;
+}

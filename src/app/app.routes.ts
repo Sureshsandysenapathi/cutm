@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule, ɵInternalFormsSharedModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, ɵInternalFormsSharedModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { Routes,RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -56,6 +56,22 @@ import { GradesAnalyticsComponent } from './student-dashboard/grades-analytics/g
 import { EnrollmentOptionsComponent } from './student-dashboard/enrollment-options/enrollment-options.component';
 import { MessagesNotificationsComponent } from './student-dashboard/messages-notifications/messages-notifications.component';
 import { StudentDashboardModule } from './student-dashboard/student-dashboard.module';
+import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
+import { UnifiedDashboardComponent } from './unified-dashboard/unified-dashboard.component';
+import { ManagecoursesComponent } from './unified-dashboard/admin/managecourses/managecourses.component';
+import { ManageusersComponent } from './unified-dashboard/admin/manageusers/manageusers.component';
+import { ReportsanalyticsComponent } from './unified-dashboard/admin/reportsanalytics/reportsanalytics.component';
+import { SettingsComponent } from './unified-dashboard/admin/settings/settings.component';
+import { MycoursesComponent } from './unified-dashboard/faculty/mycourses/mycourses.component';
+import { StudentperformanceComponent } from './unified-dashboard/faculty/studentperformance/studentperformance.component';
+import { MessagesComponent } from './unified-dashboard/faculty/messages/messages.component';
+import { CoursesService } from './unified-dashboard/admin/courses.service';
+import { CourseUploadComponent } from './unified-dashboard/admin/course-upload/course-upload.component';
+import { UsersService } from './unified-dashboard/admin/users.service';
+import { AddUserComponent } from './unified-dashboard/admin/add-user/add-user.component';
+import { ViewUsersComponent } from './unified-dashboard/admin/view-users/view-users.component';
+import { AssignmentsComponent } from './unified-dashboard/faculty/assignments/assignments.component';
+
 
 
 
@@ -88,7 +104,7 @@ export const routes: Routes = [
     { path: 'data-management', component: DataManagementComponent},
     { path: 'machine-learning', component: MachineLearningComponent},
     { path: 'deep-learning', component: DeepLearningComponent},
-    { path: '**', redirectTo: '/Home' },
+    { path: '', redirectTo: '/Home',pathMatch: 'full'},
     { path: 'videos', component: VedioComponent },
     { path: 'assignments/assignment', component: AssignmentComponent },
     { path: 'tests/midterm', component: MidtremTestComponent },
@@ -106,21 +122,41 @@ export const routes: Routes = [
     { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
     { path: 'messages', loadChildren: () => import('./messages/messages.module').then(m => m.MessagesModule) },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-     
-
-     {path: 'student-dashboard',
+      {
+        path: 'student-dashboard',
         component: StudentDashboardComponent,
         children: [
-          { path: 'student-dashboard/course-overview', component: CourseOverviewComponent },
-          { path: 'student-dashboard/assignments-deadlines', component: AssignmentsDeadlinesComponent },
-          { path: 'student-dashboard/grades-analytics', component: GradesAnalyticsComponent },
-          { path: 'student-dashboard/enrollment-options', component: EnrollmentOptionsComponent },
-          { path: 'student-dashboard/messages-notifications', component: MessagesNotificationsComponent },
+          { path: 'course-overview', component: CourseOverviewComponent },
+          { path: 'assignments-deadlines', component: AssignmentsDeadlinesComponent },
+          { path: 'grades-analytics', component: GradesAnalyticsComponent },
+          { path: 'enrollment-options', component: EnrollmentOptionsComponent },
+          { path: 'messages-notifications', component: MessagesNotificationsComponent },
+          { path: 'settings', component: SettingsPageComponent },
         ],
       },
-      { path: '**', redirectTo: '/student-dashboard' }, // Wildcard route for a 404 page
+      { path: '', redirectTo: '/student-dashboard',pathMatch: 'full' },
     
-    
+
+      { path: 'unified-dashboard', component: UnifiedDashboardComponent ,
+      children: [
+  { path: 'unified-dashboard/admin', component: UnifiedDashboardComponent },
+  { path: 'admin/manage-courses', component: ManagecoursesComponent },
+  { path: 'admin/manage-users', component: ManageusersComponent },
+  { path: 'admin/reports-analytics', component: ReportsanalyticsComponent },
+  { path: 'admin/settings', component: SettingsComponent },
+  {path: 'admin/course-upload',component: CourseUploadComponent},
+  {path: 'admin/add-user',component: AddUserComponent},
+  {path: 'admin/view-users',component: ViewUsersComponent},
+  // Faculty Routes
+  { path: 'unified-dashboard/faculty', component: UnifiedDashboardComponent },
+  { path: 'faculty/my-courses', component: MycoursesComponent },
+  { path: 'faculty/assignments', component: AssignmentsComponent },
+  { path: 'faculty/student-performance', component: StudentperformanceComponent },
+  { path: 'faculty/messages', component: MessagesComponent },
+],
+      },
+  // Default Route
+  { path: '', redirectTo: '/unified-dashboard',pathMatch: 'full' }
 
 
 
@@ -128,14 +164,11 @@ export const routes: Routes = [
 
 @NgModule({
    
-    imports: [RouterModule.forRoot(routes),CommonModule,BrowserModule, ReactiveFormsModule,HttpClientModule,UserModule,MessagesModule,StudentDashboardModule],
+    imports: [RouterModule.forRoot(routes),CommonModule,BrowserModule, ReactiveFormsModule,HttpClientModule,UserModule,MessagesModule,StudentDashboardModule,UnifiedDashboardComponent,FormsModule],
     exports: [RouterModule],
-  
+    providers: [CoursesService,UsersService],
+
    
     
   })
   export class AppRoutesModule { }
-
-
-
-
